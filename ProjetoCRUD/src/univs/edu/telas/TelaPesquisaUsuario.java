@@ -5,17 +5,31 @@
  */
 package univs.edu.telas;
 
+import univs.edu.usuario.Usuario;
+import univs.edu.usuario.UsuarioDAO;
+import univs.edu.usuario.UsuarioTableModel;
+
+
+
 /**
  *
  * @author adrianolimacandido
  */
 public class TelaPesquisaUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPesquisaUsuario
-     */
+    Usuario usuario = new Usuario();
+    UsuarioDAO dao = new UsuarioDAO();
+    
+    
     public TelaPesquisaUsuario() {
         initComponents();
+        atualizarTabela();
+    }
+    
+    public void atualizarTabela(){
+        UsuarioTableModel tm = 
+                new UsuarioTableModel(dao.listarUsuarios());
+        jTable1.setModel(tm);
     }
 
     /**
