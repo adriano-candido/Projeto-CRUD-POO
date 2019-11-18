@@ -51,7 +51,7 @@ public class FuncionarioDAO {
                 getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         Funcionario funcionario = (Funcionario) sessao.
-                createCriteria(Usuario.class)
+                createCriteria(Funcionario.class)
                 .add(Restrictions.eq("idFuncionario", id))
                 .uniqueResult();
         sessao.close();
